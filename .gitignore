@@ -348,3 +348,9 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+/src/webApi/controllers/Admin.controllers/Properties
+/src/webApi/controllers/Authorize.controllers/Properties
+/src/webApi/controllers/Offers.controllers/Properties
+/src/webApi/host/Admin.webApi/Properties
+/src/webApi/host/Athorize.webApi/Properties
+/src/webApi/host/Offers.webApi/Properties

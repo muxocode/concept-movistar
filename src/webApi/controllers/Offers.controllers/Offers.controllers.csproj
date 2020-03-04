@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <ApplicationIcon />
+    <OutputType>Library</OutputType>
+    <StartupObject />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.OData" Version="7.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\crossapp.packages\crossapp.common\crossapp.common.csproj" />
+    <ProjectReference Include="..\..\..\crossapp.packages\crossapp.file\crossapp.file.csproj" />
+    <ProjectReference Include="..\..\..\database\canalonline.data\canalonline.data.csproj" />
+    <ProjectReference Include="..\..\..\entities\model.entities\model.entities.csproj" />
+  </ItemGroup>
+
+</Project>
