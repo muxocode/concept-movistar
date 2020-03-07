@@ -19,68 +19,87 @@ namespace canalonline.data
             this.Init();
         }
 
+        List<Guid> aIds = new List<Guid>();
+
+
+
         public void Init()
         {
-            for (int i = 0; i < 5; i++)
-            {
-                aIds.Add(Guid.NewGuid());
-            }
+            IEnumerable<Offer> offers = new List<Offer>();
+            IEnumerable<OfferType> offersType = new List<OfferType>();
+            List<Client> clients = new List<Client>();
+            IEnumerable<OffersClients> offersClients = new List<OffersClients>();
 
-            if (!this.Set<Offer>().Any())
+            if (!offers.Any())
             {
-                CreateMockOfferType().ToList().ForEach(x =>
+                for (int i = 0; i < 5; i++)
                 {
-                    this.Add(x);
-                });
+                    aIds.Add(new Guid(i, 0, 0, new byte[8]));
+                }
 
-                CreateMockOffer().ToList().ForEach(x =>
-                {
-                    this.Add(x);
-                });
-
-
-            }
-
-            if (!this.Set<Client>().Any())
-            {
+                offers = CreateMockOffer();
+                offersType = CreateMockOfferType();
                 for (int i = 0; i < 4; i++)
                 {
-                    this.Add(new Client()
+                    clients.Add(new Client()
                     {
                         Email = "xxxxx@xx.com",
                         Password = "*******",
                         Name = $"Client {i}",
-                        Id = Guid.NewGuid()
+                        Id = new Guid(i, 0, 0, new byte[8])
                     });
                 }
-            }
 
-            this.SaveChanges();
-
-
-            var n = 1;
-            if(!this.Set<OffersClients>().Any())
-            {
-                foreach (var client in this.Set<Client>().ToList())
+                var n = 1;
+                if (!this.Set<OffersClients>().Any())
                 {
-                    foreach (var offer in this.Set<Offer>().ToList())
+                    foreach (var client in clients.ToList())
                     {
-                        n++;
-                        this.Add(new OffersClients()
+                        foreach (var offer in offers.ToList())
                         {
-                            Date = DateTime.Now.AddDays((n % 2 == 0) ? n : -1 * n),
-                            ClientId = client.Id,
-                            Id = Guid.NewGuid(),
-                            OfferId = offer.Id,
-                            Searched= (n % 2 == 0),
-                            Showed= (n % 3 == 0),
-                            Visited= (n % 5 == 0)
-                        });
+                            n++;
+                            this.Add(new OffersClients()
+                            {
+                                Date = DateTime.Now.AddDays((n % 2 == 0) ? n : -1 * n),
+                                ClientId = client.Id,
+                                Id = new Guid(n, 0, 0, new byte[8]),
+                                OfferId = offer.Id,
+                                Searched = (n % 2 == 0),
+                                Showed = (n % 3 == 0),
+                                Visited = (n % 5 == 0)
+                            });
+                        }
                     }
                 }
+
             }
 
-            this.SaveChanges();
+            if (!this.Set<Offer>().Any())
+            {
+                offers.ToList().ForEach(x =>
+                {
+                    this.Add(x);
+                });
+
+                offersType.ToList().ForEach(x =>
+                {
+                    this.Add(x);
+                });
+
+                clients.ToList().ForEach(x =>
+                {
+                    this.Add(x);
+                });
+
+                offersClients.ToList().ForEach(x =>
+                {
+                    this.Add(x);
+                });
+
+                this.SaveChanges();
+
+            }
+
 
         }
 
@@ -91,7 +110,6 @@ namespace canalonline.data
             optionsBuilder.UseInMemoryDatabase(Guid.NewGuid().ToString());
         }
 
-        List<Guid> aIds = new List<Guid>();
         protected IEnumerable<OfferType> CreateMockOfferType()
         {
 
@@ -122,7 +140,7 @@ namespace canalonline.data
                 {
                     Description = $"Esto es la descripción de la oferta {i}",
                     Finish = (i % 4 == 0) ? null : (DateTime?)DateTime.Now.AddDays(i),
-                    Id = Guid.NewGuid(),
+                    Id = new Guid(i, 0, 0, new byte[8]),
                     Name = $"Oferta sensacional {i}",
                     Price = 30 * (i + 1) / ((i % 5) + 1),
                     Start = DateTime.Now.AddDays((i % 4 == 0) ? i : -1 * i),
