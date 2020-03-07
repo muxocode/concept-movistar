@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="webApi.common.Controllers.ControllerBase&lt;T, TKey&gt;">
+    <Position X="13.25" Y="2" Width="5.75" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Admin.webApi.Controllers.ClientsController">
+    <Position X="5" Y="7" Width="10" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Offers.webApi.Controllers.OffersClientsController">
+    <Position X="17" Y="7" Width="6.75" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Offers.webApi.Controllers.OffersController">
+    <Position X="11" Y="9.5" Width="10.25" />
+    <TypeIdentifier />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

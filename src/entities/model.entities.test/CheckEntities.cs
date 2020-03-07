@@ -14,6 +14,7 @@ namespace model.entities.test
         [Fact]
         public void Introspection()
         {
+            //Obtenemos todas las entidades del assembly
             var types = typeof(IEntity).Assembly.GetTypes()
                                         .Where(x => !x.IsAbstract && x.IsClass)
                                         .ToList();

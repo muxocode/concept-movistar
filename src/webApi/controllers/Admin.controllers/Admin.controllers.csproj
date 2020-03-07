@@ -13,9 +13,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\crossapp.packages\crossapp.common\crossapp.common.csproj" />
-    <ProjectReference Include="..\..\..\crossapp.packages\crossapp.file\crossapp.file.csproj" />
+    <ProjectReference Include="..\..\..\crossapp.packages\crossapp.file\crossapp.log.csproj" />
     <ProjectReference Include="..\..\..\database\canalonline.data\canalonline.data.csproj" />
     <ProjectReference Include="..\..\..\entities\model.entities\model.entities.csproj" />
+    <ProjectReference Include="..\controllers.common\controllers.common.csproj" />
   </ItemGroup>
 
 </Project>

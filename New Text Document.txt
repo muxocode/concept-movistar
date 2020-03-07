@@ -1,0 +1,4 @@
+docker save miguel.demo -o miguel.demo.tar
+docker load -i .\miguel.demo.tar
+docker run -d -p 8080:80 --name myapp miguel.demo
+start 'http://localhost:8080/api/offers'

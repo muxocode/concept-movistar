@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\crossapp.packages\crossapp.common\crossapp.common.csproj" />
+    <ProjectReference Include="..\..\src\crossapp.packages\crossapp.file\crossapp.log.csproj" />
+    <ProjectReference Include="..\..\src\database\canalonline.data.test\canalonline.data.test.csproj" />
+    <ProjectReference Include="..\..\src\database\canalonline.data\canalonline.data.csproj" />
+    <ProjectReference Include="..\..\src\entities\model.bussines\movistar.model.bussines.csproj" />
+    <ProjectReference Include="..\..\src\entities\model.entities.test\model.entities.test.csproj" />
+    <ProjectReference Include="..\..\src\entities\model.entities\model.entities.csproj" />
+    <ProjectReference Include="..\..\src\tools.bussines\movistar.userPreferences\movistar.userPreferences.csproj" />
+    <ProjectReference Include="..\..\src\tools.packages\LogHelper\LogHelper.csproj" />
+    <ProjectReference Include="..\..\src\util.packages\util.common.test\util.common.test.csproj" />
+    <ProjectReference Include="..\..\src\util.packages\util.common\util.common.csproj" />
+    <ProjectReference Include="..\..\src\util.packages\util.test.test\util.test.test.csproj" />
+    <ProjectReference Include="..\..\src\util.packages\util.test\util.test.csproj" />
+    <ProjectReference Include="..\..\src\webApi\controllers\Admin.controllers\Admin.controllers.csproj" />
+    <ProjectReference Include="..\..\src\webApi\controllers\Authorize.controllers\Authorize.controllers.csproj" />
+    <ProjectReference Include="..\..\src\webApi\controllers\controllers.common\controllers.common.csproj" />
+    <ProjectReference Include="..\..\src\webApi\controllers\Offers.controllers\Offers.controllers.csproj" />
+    <ProjectReference Include="..\..\src\webApi\domain\domain\domain.csproj" />
+    <ProjectReference Include="..\..\src\webApi\host\Admin.webApi\Admin.webApi.csproj" />
+    <ProjectReference Include="..\..\src\webApi\host\Athorize.webApi\Athorize.webApi.csproj" />
+    <ProjectReference Include="..\..\src\webApi\host\Offers.webApi\Offers.webApi.csproj" />
+    <ProjectReference Include="..\..\test\domain.test\domain.test.csproj" />
+  </ItemGroup>
+
+</Project>

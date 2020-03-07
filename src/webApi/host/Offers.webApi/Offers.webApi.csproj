@@ -2,14 +2,19 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>2e5d5f73-cffe-4d8a-9c26-432f6df58621</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>..\..\..\..</DockerfileContext>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.OData" Version="7.3.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.9.10" />
     <ProjectReference Include="..\..\..\crossapp.packages\crossapp.common\crossapp.common.csproj" />
-    <ProjectReference Include="..\..\..\crossapp.packages\crossapp.file\crossapp.file.csproj" />
+    <ProjectReference Include="..\..\..\crossapp.packages\crossapp.file\crossapp.log.csproj" />
     <ProjectReference Include="..\..\..\database\canalonline.data\canalonline.data.csproj" />
     <ProjectReference Include="..\..\..\entities\model.entities\model.entities.csproj" />
+    <ProjectReference Include="..\..\..\tools.bussines\movistar.userPreferences\movistar.userPreferences.csproj" />
     <ProjectReference Include="..\..\..\tools.packages\LogHelper\LogHelper.csproj" />
     <ProjectReference Include="..\..\controllers\Offers.controllers\Offers.controllers.csproj" />
     <ProjectReference Include="..\..\domain\domain\domain.csproj" />

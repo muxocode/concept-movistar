@@ -4,5 +4,13 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.OData" Version="7.3.0" />
+    <ProjectReference Include="..\..\..\crossapp.packages\crossapp.file\crossapp.log.csproj" />
+    <ProjectReference Include="..\..\..\entities\model.entities\model.entities.csproj" />
+    <ProjectReference Include="..\..\..\tools.packages\LogHelper\LogHelper.csproj" />
+    <ProjectReference Include="..\..\domain\domain\domain.csproj" />
+  </ItemGroup>
+
 
 </Project>

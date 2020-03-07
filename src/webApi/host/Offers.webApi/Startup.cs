@@ -1,16 +1,11 @@
-using System;
 using System.Linq;
 using canalonline.data;
-using crossapp.file.logging;
-using crossapp.repository;
+using crossapp.log.logging;
 using crossapp.rules;
-using crossapp.services;
 using crossapp.unitOfWork;
-using domain.rules;
+using domain;
 using domain.rules.offer;
-using domain.services._base;
 using entities;
-using entities._base;
 using LogHelper;
 using Microsoft.AspNet.OData.Builder;
 using Microsoft.AspNet.OData.Extensions;
@@ -21,24 +16,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OData.Edm;
+using movistar.model.bussines;
+using movistar.userPreferences;
 
 namespace Offers.webApi
 {
-    public static class ExtensionHelper
-    {
-        public static IServiceCollection AddService<T>(this IServiceCollection services) where T : class, IEntity
-        {
-            services.AddTransient<IEntityRepository<T>, canalonline.data._base.RepositoryBase<T>>();
-            services.AddTransient<IRepository<T>>(x => x.GetService<IEntityRepository<T>>());
-
-            services.AddTransient<IRuleProcessor<T>, RuleProcessor<T>>();
-
-            services.AddTransient<IService<T>, ServiceGeneric<T>>();
-
-            return services;
-        }
-    }
-
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -58,7 +40,6 @@ namespace Offers.webApi
             services.AddService<Offer>();
             services.AddService<OfferType>();
 
-            services.AddService<Client>();
             services.AddService<OffersClients>();
 
             //Añadimos las reglas
@@ -69,7 +50,10 @@ namespace Offers.webApi
             services.AddTransient<IEntityUnitOfWork, UnitOfWork>();
             services.AddTransient<IUnitOfWork>(x=>x.GetService<IEntityUnitOfWork>());
 
+            //Añadimos las librerías externas
 
+            //La razón para utilizar un patrón builder, es por si tenemos que pasarle configuración del sistema en el que nos encontramos
+            services.AddTransient<IUserPreferencesManager>(x => UserPreferencesBuilder.Create());
 
 
             services.AddControllers(options =>
@@ -112,16 +96,24 @@ namespace Offers.webApi
                 var odataBuilder = new ODataConventionModelBuilder();
 
                 odataBuilder.EntitySet<Offer>("Offers");
-                odataBuilder.EntitySet<Client>("Clients");
+                odataBuilder.EntitySet<OffersClients>("OffersClients");
 
-                odataBuilder.EntityType<Client>()
+
+                // New code:
+                odataBuilder.Function("Preferences")
+                    .Returns<IActionResult>();
+                  
+
+                /*
+                 * odataBuilder.EntitySet<Client>("Clients");
+                 * odataBuilder.EntityType<Client>()
                  .Action("Offers")
                  .Parameter<Guid>("key");
 
                 odataBuilder.EntityType<Client>()
                  .Action("SetState")
                  .Parameter<Guid>("key");
-
+                 */
 
                 return odataBuilder.GetEdmModel();
             }

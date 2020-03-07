@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace crossapp.file.logging
+namespace crossapp.log.logging
 {
     /// <summary>
     /// Error handler

@@ -5,7 +5,6 @@ namespace entities
 {
     public partial class OffersClients : entities._base.EntityBase<Guid>
     {
-        public Guid Id { get; set; }
         public Guid OfferId { get; set; }
         public Guid ClientId { get; set; }
         public DateTime Date { get; set; }

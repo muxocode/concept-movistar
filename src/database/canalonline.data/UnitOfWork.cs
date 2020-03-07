@@ -1,12 +1,11 @@
 ﻿using crossapp.unitOfWork;
-using crossapp.unitOfWork.enums;
-using System;
-using System.Collections.Generic;
-using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace canalonline.data
 {
+    /// <summary>
+    /// Unit of work pattern
+    /// </summary>
     public class UnitOfWork : IEntityUnitOfWork
     {
         public UnitOfWork(movistarContext context)

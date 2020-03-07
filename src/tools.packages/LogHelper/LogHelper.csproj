@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\crossapp.packages\crossapp.file\crossapp.file.csproj" />
+    <ProjectReference Include="..\..\crossapp.packages\crossapp.file\crossapp.log.csproj" />
   </ItemGroup>
 
 </Project>

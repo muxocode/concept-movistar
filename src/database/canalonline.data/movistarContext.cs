@@ -55,7 +55,10 @@ namespace canalonline.data
                 }
             }
 
-            var n = 0;
+            this.SaveChanges();
+
+
+            var n = 1;
             if(!this.Set<OffersClients>().Any())
             {
                 foreach (var client in this.Set<Client>().ToList())
@@ -69,8 +72,8 @@ namespace canalonline.data
                             ClientId = client.Id,
                             Id = Guid.NewGuid(),
                             OfferId = offer.Id,
-                            Searched= (n % 3 == 0),
-                            Showed= (n % 4 == 0),
+                            Searched= (n % 2 == 0),
+                            Showed= (n % 3 == 0),
                             Visited= (n % 5 == 0)
                         });
                     }
@@ -81,27 +84,10 @@ namespace canalonline.data
 
         }
 
-        /*public virtual DbSet<Article> Articles { get; set; }
-        public virtual DbSet<OffersClients> Offers_Clients { get; set; }
-        public virtual DbSet<ChangeLog> ChangeLog { get; set; }
-        public virtual DbSet<Client> Client { get; set; }
-        public virtual DbSet<DataType> DataType { get; set; }
-        public virtual DbSet<DetailTypeId> DetailTypeId { get; set; }
-        public virtual DbSet<EntityType> EntityType { get; set; }
-        public virtual DbSet<OfferDetails> OfferDetails { get; set; }
-        public virtual DbSet<OfferType> OfferType { get; set; }
-        public virtual DbSet<Offer> Offers { get; set; }
-        public virtual DbSet<Rol> Rol { get; set; }
-        public virtual DbSet<User> User { get; set; }
-        public virtual DbSet<UserRol> UserRol { get; set; }
-        */
+        
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            /*if (!optionsBuilder.IsConfigured)
-            {
-                optionsBuilder.UseSqlServer("Data Source=localhost;Initial Catalog=movistar;Trusted_Connection=True;");
-            }*/
-
+            //Para esta demo no necesitamos BBDD real
             optionsBuilder.UseInMemoryDatabase(Guid.NewGuid().ToString());
         }
 
