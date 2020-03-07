@@ -102,18 +102,7 @@ namespace Offers.webApi
                 // New code:
                 odataBuilder.Function("Preferences")
                     .Returns<IActionResult>();
-                  
-
-                /*
-                 * odataBuilder.EntitySet<Client>("Clients");
-                 * odataBuilder.EntityType<Client>()
-                 .Action("Offers")
-                 .Parameter<Guid>("key");
-
-                odataBuilder.EntityType<Client>()
-                 .Action("SetState")
-                 .Parameter<Guid>("key");
-                 */
+                 
 
                 return odataBuilder.GetEdmModel();
             }

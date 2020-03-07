@@ -46,6 +46,7 @@ namespace webApi.common.Controllers
         }
 
         // GET
+        [HttpGet]
         public virtual async Task<IActionResult> Get()
         {
             try
@@ -63,6 +64,7 @@ namespace webApi.common.Controllers
         }
 
         // GET/key
+        [HttpGet]
         public virtual async Task<IActionResult> Get([FromODataUri]TKey key)
         {
             try
@@ -89,6 +91,7 @@ namespace webApi.common.Controllers
 
 
         // POST
+        [HttpPost]
         public virtual async Task<IActionResult> Post(T item)
         {
             try
@@ -118,6 +121,7 @@ namespace webApi.common.Controllers
         }
 
         // PUT
+        [HttpPut]
         public virtual async Task<IActionResult> Put([FromODataUri] TKey key, T item)
         {
             try
@@ -153,6 +157,7 @@ namespace webApi.common.Controllers
         }
 
         //PATCH
+        [HttpPatch]
         public virtual async Task<IActionResult> Patch([FromODataUri] TKey key, Delta<T> item)
         {
             try
@@ -192,6 +197,7 @@ namespace webApi.common.Controllers
         }
 
         // DELETE
+        [HttpDelete]
         public virtual async Task<IActionResult> Delete([FromODataUri] TKey key)
         {
             try
